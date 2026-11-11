@@ -1,0 +1,11 @@
+{
+    "description": "Copies every backup to S3 or SFTP, deduplicated and checksum-verified, restorable from the Backups page.",
+    "autoload": {
+        "psr-4": {
+            "OffsiteBackups\\": "src/"
+        }
+    },
+    "config": {
+        "autoloader-suffix": "OffsiteBackupsExtension"
+    }
+}

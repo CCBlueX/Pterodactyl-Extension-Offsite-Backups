@@ -1,0 +1,47 @@
+{
+    "$schema": "./node_modules/@pterodactyl/sdk/manifest.schema.json",
+    "id": "offsite-backups",
+    "name": "Offsite Backups",
+    "version": "1.0.0",
+    "requires": {
+        "panel": "^2.0.0-dev",
+        "sdk": "^2.0.0-beta.6",
+        "php": "^8.3"
+    },
+    "description": "Copies every backup to S3 or SFTP, deduplicated and checksum-verified, restorable from the Backups page.",
+    "author": "Izuna Seikatsu",
+    "provider": "OffsiteBackups\\OffsiteBackupsProvider",
+    "ui": {
+        "entry": "dist/client.js",
+        "mode": "native",
+        "prefix": "ofs",
+        "views": [
+            "server.backups"
+        ],
+        "screens": [
+            {
+                "id": "admin",
+                "area": "admin",
+                "path": "offsite-backups/$tab",
+                "nav": {
+                    "label": "Offsite Backups",
+                    "icon": "cloud-upload",
+                    "params": {
+                        "tab": "overview"
+                    }
+                }
+            },
+            {
+                "id": "server-tab",
+                "area": "admin",
+                "parent": "admin.server",
+                "path": "offsite",
+                "nav": {
+                    "label": "Off-site",
+                    "order": 30
+                }
+            }
+        ]
+    },
+    "icon": "cloud-upload"
+}
